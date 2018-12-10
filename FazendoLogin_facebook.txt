@@ -4,11 +4,13 @@
 3) instalar cordova no projeto: npm install -g cordova
 3.1) gerar hash do windows: keytool -exportcert -alias androiddebugkey -keystore "C:\Users\USERNAME\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
 3.2) na pasta do projeto executar:  keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
-3.2.1) pegar o SHA1 que est· em hexadecimal e converter para BASE64.
-4) InstalaÁ„o do plugin:
+3.2.1) pegar o SHA1 que est√° em hexadecimal e converter para BASE64.
+3.3) Gerar HASH da chave de lan√ßamento no app store: 
+keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore YOUR_RELEASE_KEY_PATH | openssl sha1 -binary | openssl base64
+4) Instala√ß√£o do plugin:
 4.1) ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="1883896635255783" --variable APP_NAME="app-tutorial"
 4.2) npm install --save @ionic-native/facebook
-5) verificar se no arquivo config.xml est· parecido com esse exemplo abaixo:
+5) verificar se no arquivo config.xml est√° parecido com esse exemplo abaixo:
   <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
       <variable name="APP_ID" value="1883896635255783 />
       <variable name="APP_NAME" value="app-tutorial />
